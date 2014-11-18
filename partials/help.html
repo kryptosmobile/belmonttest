@@ -1,0 +1,79 @@
+<style>#branding {
+    display: none;
+}
+.help-text {
+    text-align:justify;
+}
+.help-img {
+    box-shadow:0 0 10px #000;
+}
+</style>
+<div class="scrollable">
+    <div class="scrollable-content">
+        <div id="helpgroup" class="list-group">
+            <div class="list-group-item" ng-show="firsttime == true" style="background:#000;">
+                <div style='text-align:center;'>
+                    <img id="loginbranding" style='width:auto;height:70px;' src="{{brandingUrl}}"/>
+                </div>
+                <style id="helpcustomstyle">
+                </style>
+                <div class="alert alert-info">
+                    Welcome.!!.  First time user.<br/>
+                    Here is a quick guide help about this app.<br/>
+                    <button class="btn btn-success" ng-click="gohome();">Press Me</button> to go to Home screen.
+                </div>
+            </div>
+            <a class="list-group-item active">Navigation - Home screen</a>
+            <div class="list-group-item">
+                <p class="help-text">
+                    Tap on the left top left corner to launch the side bar navigation.
+                    When you are in the home screen, tap the top right corner icon to login and logout
+                    For non homescreen pages, the arrow icon displayed at the top right corner will take you back to the
+                    previous page.
+                </p>
+                <img class="help-img" src="img/help1.png" style="width:100%;height:100%;"/>
+            </div>
+            <div class="list-group-item">
+                <p class="help-text">
+                    Swipe right to navigate to the next page apps.
+                    Swipe left to navigate to the previous page.
+                </p>
+                <img class="help-img" src="img/help2.png" style="width:100%;height:100%;"/>
+            </div>
+
+            <a class="list-group-item active">Launching the Apps</a>
+            <div class="list-group-item">
+                <p class="help-text">
+                    <h3>Three ways to launch the apps<br></h3>
+                    <i class="fa fa-check"></i>&nbsp;Home screen app icons<br>
+                    <i class="fa fa-check"></i>&nbsp;Sidebar menu<br>
+                    <i class="fa fa-check"></i>&nbsp;Dock icon<br>
+                </p>
+            </div>
+            <a class="list-group-item active">Report an issue</a>
+            <div class="list-group-item">
+                <p class="help-text">
+                    If you encounter any issues with the app, please use the 'Report Issue' menu under the sidebar to report the same
+                    in an email. Please attach screenshots if any.
+                </p>
+            </div>
+            <a class="list-group-item active">Troubleshooting</a>
+            <div class="list-group-item">
+                <p class="help-text">
+                    If you encounter issues related to the app icons not loading after the metadata update, use
+                    Troubleshooting option under settings menu from the sidebar. Press the 'Reset My App' button
+                    to reset it to default state. Note: You will get an update manager popup after a reset, press 'Yes'
+                    to update the app. During this process do not minimize the app, as it can corrupt the metadata.
+                    If the metadata gets corrupted then you need to reset it again.
+                </p>
+            </div>
+
+        </div>
+<!--
+        <div class="1container">
+            <img src="img/help.png" style="width:100%;height:100%;"/>
+
+        </div>
+-->
+    </div>
+</div>

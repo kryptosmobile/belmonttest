@@ -1,4 +1,0 @@
-Belmont
-=======
-
-Belmont banner app.
