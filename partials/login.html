@@ -1,11 +1,15 @@
 <style>#branding {
     display: none;
-}</style>
+}
+.loginPageBackButton{
+    display:none !important;
+}
+</style>
 <div class="scrollable">
     <div class="scrollable-content">
         <div class="1container" style="padding:10px;">
             <div class="1row">
-                <div style='text-align:center;'>
+                <div style='text-align:center;margin:-5px 0 0 0;'>
                     <img id="loginbranding" style='width:290px;height:70px;' src="{{brandingUrl}}"/>
                 </div>
             </div>
@@ -28,7 +32,7 @@
                     <div id="fgpassword" ng-click="forgotpassword();" class="pull-right"
                         style="cursor:pointer;color:#fff;padding-bottom:10px;font-weight:bold;">Forgot Password?
                     </div>
-                    <button id="loginbtn" type="button" style="-webkit-border-radius:4px;color:#fff;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#D63333), color-stop(50%,#DE5C5C), color-stop(100%,#DE5C5C));font-weight:normal;border:1px solid #D63333;cursor:pointer;line-height:15px;font-size:18px;padding:13px;clear:both;text-align:center;font-family:arial;" ng-click="login();">
+                    <button id="loginbtn" type="button" style="-webkit-border-radius:4px;color:#fff;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#D63333), color-stop(50%,#D63333), color-stop(100%,#D63333));font-weight:normal;border:1px solid #D63333;cursor:pointer;line-height:15px;font-size:18px;padding:13px;clear:both;text-align:center;font-family:arial;" ng-click="login();">
                         Login
                     </button>
                 </form>
