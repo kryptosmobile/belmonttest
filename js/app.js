@@ -70,8 +70,8 @@ document.addEventListener('deviceready',onDeviceReady, false);
 
 var MyCampusApp = {
     config : {
-        tenant : "CEAI",
-        serverUrl : "",
+        tenant : "BELMONT",
+        serverUrl : "https://kryptos.kryptosmobile.com",
         tenantFolder : function(device, tenant) {
             if(device.platform == 'Android') {
                 return "file://MyCampusMobile-" + tenant + "/";
