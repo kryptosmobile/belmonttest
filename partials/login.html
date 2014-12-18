@@ -4,35 +4,82 @@
 .loginPageBackButton{
     display:none !important;
 }
+    .customInputbox{
+        width: 90%;
+        border: 0;
+        line-height: 3.6em;
+        box-sizing: border-box;
+        color: #71747A;
+        font-family:'Helvetica Neue';
+        text-shadow: none;
+    }
+    .customInputbox:focus{
+        outline: none;
+    }
+    .blockinput{
+        border-bottom: 1px solid #383737;
+    }
+    .blockinput:first-child{
+        border-top: 0;
+        
+    }
+    .blockinput:last-child{
+        border-bottom: 0;
+    }
+    .blockinput i{
+        padding-right: 10px;
+        color: #B1B3B7;
+        text-shadow: 0 1px 0 #FFF;
+    }
+    ::-webkit-input-placeholder {
+        color: #71747A;
+        font-family:'Helvetica Neue';
+        text-shadow: none;
+    }
 </style>
 <div class="scrollable">
     <div class="scrollable-content">
         <div class="1container" style="padding:10px;">
-            <div class="1row">
-                <div style='text-align:center;margin:-5px 0 0 0;'>
-                    <img id="loginbranding" style='width:290px;height:70px;' src="{{brandingUrl}}"/>
-                </div>
-            </div>
+            <!--<div class="1row">
+             <div style='text-align:center;margin:-5px 0 0 0;'>
+             <img id="loginbranding" style='width:290px;height:70px;' src="{{brandingUrl}}"/>
+             </div>
+             </div>-->
             <div class="1container" style="padding:5px;">
                 <form role="form">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="fa fa-user"></span></span>
-                            <input name="loginUsername" id="loginUsername" type="text" class="form-control"
-                                placeholder="Username">
+                    <!--<div class="form-group">
+                     <div class="input-group">
+                     <span class="input-group-addon"><span class="fa fa-user"></span></span>
+                     <input name="loginUsername" id="loginUsername" type="text" class="form-control"
+                     placeholder="Username">
+                     </div>
+                     </div>
+                     <div class="form-group">
+                     <div class="input-group">
+                     <span class="input-group-addon"><span class="fa fa-lock"></span></span>
+                     <input name="loginPassword" id="loginPassword" type="password" class="form-control"
+                     placeholder="Password">
+                     </div>
+                     </div>-->
+                    <div style='text-align:center'>
+                    <div class="input">
+                        <div class="blockinput">
+                            <input class='customInputbox' name="loginUsername" id="loginUsername" type="text" placeholder="Username">
                                 </div>
+                        <div class="blockinput">
+                            <input class='customInputbox' name="loginPassword" id="loginPassword" type="password" placeholder="Password">
+                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="fa fa-lock"></span></span>
-                            <input name="loginPassword" id="loginPassword" type="password" class="form-control"
-                                placeholder="Password">
-                                </div>
                     </div>
+                    
+                    
+                    
+                    
+                    
                     <div id="fgpassword" ng-click="forgotpassword();" class="pull-right"
-                        style="cursor:pointer;color:#fff;padding-bottom:10px;font-weight:bold;">Forgot Password?
+                        style="cursor:pointer;color:#fff;padding-bottom:10px;font-weight:bold;margin:5px 15px 0 0;">Forgot Password?
                     </div>
-                    <button id="loginbtn" type="button" style="-webkit-border-radius:4px;color:#fff;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#D63333), color-stop(50%,#D63333), color-stop(100%,#D63333));font-weight:normal;border:1px solid #D63333;cursor:pointer;line-height:15px;font-size:18px;padding:13px;clear:both;text-align:center;font-family:arial;" ng-click="login();">
+                    <button id="loginbtn" type="button" style="-webkit-border-radius:4px;border-radius:4px;color:#fff;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#D63333), color-stop(50%,#D63333), color-stop(100%,#D63333));font-weight:normal;border:1px solid #D63333;cursor:pointer;line-height:15px;font-size:18px;padding:13px;clear:both;text-align:center;font-family:arial;margin:25px 0 0 13px;" ng-click="login();">
                         Login
                     </button>
                 </form>
