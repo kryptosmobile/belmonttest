@@ -203,21 +203,26 @@ angular.module('myApp.controllers', []).
             //alert("Home controller called..");
             //alert ("Home Controller called");
             //setTimeout(function () {
-            
+
             /*
             Status bar fix
             */
-                             
+
                              try{StatusBar.overlaysWebView(false);
             StatusBar.backgroundColorByHexString("#000000");
                              }catch(e){console.log("statusbar")}
-                             
+
             if(!$rootScope.homeDownloadCompleteAdded) {
                 $rootScope.$on("onDownloadComplete", function(event, data) {
                     $.unblockUI();
                     $route.reload();
                     $rootScope.$apply(function () {
-                        $location.path("/home");
+                        //$location.path("/home");
+                        if ($rootScope.loggedin) {
+							$rootScope.setRoute("/home");
+						}else{
+							$rootScope.setRoute("/login");
+						}
                     });
                 });
                 $rootScope.homeDownloadCompleteAdded = true;
@@ -257,13 +262,13 @@ angular.module('myApp.controllers', []).
                  */
                     //alert ("Before fillRootScopeForHome ");
                 MyCampusApp.fillRootScopeForHome($rootScope, $sce, tenant, $window, $location, $route, $http,  $scope, $compile);
-				
+
 				if ($rootScope.loggedin) {
 					$rootScope.setRoute("/home");
 				}else{
 					$rootScope.setRoute("/login");
 				}
-				
+
                 if (window.device) {
                     var allIcons, allScreens, dock, dockIcons, icon, stage, _i, _len, _results;
                     allIcons = [];
