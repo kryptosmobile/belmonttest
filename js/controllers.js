@@ -75,6 +75,15 @@ angular.module('myApp.controllers', []).
     }])
     .controller('LoginCtrl', ['$scope', '$rootScope', '$http', '$location',
         function ($scope, $rootScope, $http, $location) {
+			setTimeout(function () {
+				$('#loginfrm').on('submit', function(event) {
+						event.preventDefault();
+						$rootScope.login();
+						$("#loginbtn").focus();
+						return false;
+    			});
+			},2000);
+
             $rootScope.back = function () {
                 $location.path("/home");
             };
