@@ -7,7 +7,6 @@
 #loginDiv {
     margin: 25px auto;
     width: 90%;
-    margin-bottom:0px;
 }
 
 #loginDiv input {
@@ -35,7 +34,7 @@
     border-left: 1px solid #000;
     border-radius: 0 0 5px 5px;
     color: #000;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     padding-left: 12px;
     width: 100%;
 }
@@ -49,7 +48,7 @@
              </div>
              </div>-->
             <div class="1container" style="padding:5px;">
-                <form role="form" id="loginfrm">
+                <form role="form" ng-submit="login()">
                     <!--<div class="form-group">
                      <div class="input-group">
                      <span class="input-group-addon"><span class="fa fa-user"></span></span>
@@ -72,7 +71,7 @@
                     <div id="fgpassword" ng-click="forgotpassword();" class="pull-right"
                         style="cursor:pointer;color:#fff;padding-bottom:10px;font-weight:bold;margin:5px 5% 0 0;">Forgot Password?
                     </div>
-                    <button id="loginbtn" type="button" style="-webkit-border-radius:4px;border-radius:4px;color:#fff;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#D63333), color-stop(50%,#D63333), color-stop(100%,#D63333));font-weight:normal;border:1px solid #D63333;cursor:pointer;line-height:15px;font-size:18px;padding:13px 30px;clear:both;text-align:center;font-family:arial;margin:20px 0 0 5%;" ng-click="login();">
+                    <button id="loginbtn" type="submit" style="-webkit-border-radius:4px;border-radius:4px;color:#fff;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#D63333), color-stop(50%,#D63333), color-stop(100%,#D63333));font-weight:normal;border:1px solid #D63333;cursor:pointer;line-height:15px;font-size:18px;padding:13px;clear:both;text-align:center;font-family:arial;margin:25px 0 0 5%;" ng-click="login();">
                         Login
                     </button>
                 </form>
