@@ -86,13 +86,14 @@ to see this page in browser
 
         <div class="btn-group pull-left">
           <div ng-click="toggle('mainSidebar')" class="btn btn-navbar sidebar-toggle">
-            <i class="fa fa-bars fa-2x"></i>
+            <img style='height:39px;' src='images/menu-icon.png'/>
           </div>
         </div>
 
         <div class="btn-group pull-right loginPageBackButton" yield-to="navbarAction">
             <div ng-show="showlogin" ng-click='loginlogout();' class="btn btn-navbar">
-                <i ng-class="loginclass"></i> <span ng-bind="logintext" class="hide"></span>
+                <i ng-class="loginclass" ng-show="loginclass != 'fa fa-power-off fa-2x' "></i> <span ng-bind="logintext" class="hide"></span>
+                <img style='height:39px;' src='images/logout-icon.png' ng-show="loginclass == 'fa fa-power-off fa-2x' "/>
             </div>
             <div ng-hide="showlogin" ng-click='back();' class="btn btn-navbar">
                 <i class="fa fa-chevron-circle-left fa-2x"></i>
