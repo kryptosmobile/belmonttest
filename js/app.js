@@ -244,8 +244,8 @@ var MyCampusApp = {
                     if( angular.isFunction( $rootScope["logoutcb"] ) ) {
                         $rootScope["logoutcb"]();
                     }
-                    //$route.reload(); /* Use this code to take the user to public section of the apps after logout */
-                    $location.path("/home");
+                    $route.reload(); /* Use this code to take the user to public section of the apps after logout */
+                    //$location.path("/home");
                 }
             };
             if(window.device) {
