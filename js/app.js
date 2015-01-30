@@ -245,7 +245,7 @@ var MyCampusApp = {
                         $rootScope["logoutcb"]();
                     }
                     //$route.reload(); /* Use this code to take the user to public section of the apps after logout */
-                    $location.path("/login");
+                    $location.path("/home");
                 }
             };
             if(window.device) {
