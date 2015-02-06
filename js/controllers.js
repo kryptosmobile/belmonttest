@@ -39,7 +39,7 @@ angular.module('myApp.controllers', []).
             if (window.device) {
                 window.plugin.email.open({
                     to: [$rootScope.metadata.feedbackEmail],
-                    subject: 'myCampus Mobile ( ' + $rootScope.tenant + ' ) Feedback',
+                    subject: 'myBelmont Mobile Feedback',
                     body: '\n\n\n\n\n\n\n<h3>Device Details</h3><br/><p>' +
                         'Platform : ' + window.device.platform + '<br/>' +
                         'UUID : ' + window.device.uuid + '<br/>' +

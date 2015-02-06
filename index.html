@@ -86,17 +86,18 @@ to see this page in browser
 
         <div class="btn-group pull-left">
           <div ng-click="toggle('mainSidebar')" class="btn btn-navbar sidebar-toggle">
-            <img style='height:39px;' src='images/menu-icon.png'/>
+            <img style='height:39px;' src='images/menu.png'/>
           </div>
         </div>
 
         <div class="btn-group pull-right loginPageBackButton" yield-to="navbarAction">
             <div ng-show="showlogin" ng-click='loginlogout();' class="btn btn-navbar">
-                <i ng-class="loginclass" ng-show="loginclass != 'fa fa-power-off fa-2x' "></i> <span ng-bind="logintext" class="hide"></span>
-                <img style='height:39px;' src='images/logout-icon.png' ng-show="loginclass == 'fa fa-power-off fa-2x' "/>
+                <!--<i ng-class="loginclass" ng-show="loginclass != 'fa fa-power-off fa-2x' "></i> <span ng-bind="logintext" class="hide"></span>
+                <img style='height:39px;' src='images/logout-icon.png' ng-show="loginclass == 'fa fa-power-off fa-2x' "/>-->
+                <span style="text-transform:none;" ng-show="loginclass == 'fa fa-power-off fa-2x' ">Logout</span>
             </div>
             <div ng-hide="showlogin" ng-click='back();' class="btn btn-navbar">
-                <i class="fa fa-chevron-circle-left fa-2x"></i>
+                <i class="fa fa-chevron-left" style="text-transform:none;">&nbsp;Back</i>
             </div>
 <!--
             <button ng-show="showlogin" type="button" class="btn btn-primary navbar-btn" href="#login" ng-click='loginlogout();'>

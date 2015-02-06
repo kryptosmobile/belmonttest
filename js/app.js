@@ -252,7 +252,7 @@ var MyCampusApp = {
                 navigator.notification.confirm(
                     'Are you sure you want to logout?', // message
                     logoutcleanup,            // callback to invoke with index of button pressed
-                    'Just Confirming',           // title
+                    ' ',           // title
                     ['Yes','No']         // buttonLabels
                 );
             }else {
@@ -323,7 +323,7 @@ var MyCampusApp = {
                 navigator.notification.confirm(
                     'Are you sure you want to exit?', // message
                     onConfirm,            // callback to invoke with index of button pressed
-                    'Just Confirming',           // title
+                    ' ',           // title
                     ['Yes','No']         // buttonLabels
                 );
             }else {
