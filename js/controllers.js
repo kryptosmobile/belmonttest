@@ -262,13 +262,13 @@ angular.module('myApp.controllers', []).
                  */
                     //alert ("Before fillRootScopeForHome ");
                 MyCampusApp.fillRootScopeForHome($rootScope, $sce, tenant, $window, $location, $route, $http,  $scope, $compile);
-
-				if ($rootScope.loggedin) {
-					$rootScope.setRoute("/home");
-				}else{
-					$rootScope.setRoute("/login");
+				if (!$rootScope.loggedin) {
+					/* AK added to show login page when coming to home */
+					if (!$rootScope.firstTime) {
+						/**  Mod Belmont - Bring up the login screen when the user is not logged in **/
+						$location.path("/login");
+					}
 				}
-
                 if (window.device) {
                     var allIcons, allScreens, dock, dockIcons, icon, stage, _i, _len, _results;
                     allIcons = [];
@@ -523,16 +523,17 @@ angular.module('myApp.controllers', []).
         }])
     .controller('HelpCtrl', ['$scope', '$compile', '$location', '$rootScope', function ($scope, $compile, $location, $rootScope) {
         MyCampusApp.homeScreenDisplayed=false;
-        $scope.firsttime = true;
+        $scope.firsttime = false;
         $rootScope.showlogin = false;
-        if ($.jStorage.get('launchedonce')) {
+        /* AK - Removing as per Belmont requirement to not show help screen when launched first time. */
+        /*if ($.jStorage.get('launchedonce')) {
             $scope.firsttime = false;
         }else {
             $scope.brandingUrl=MyCampusApp.config.tenant + "/branding.png";
             var helpcustostyle=".navbar {display:none;}.app-body {padding-top:0px !important;padding-bottom:0px !important;}";
             $("#helpcustomstyle").html(helpcustostyle);
             $.jStorage.set('launchedonce', 'true');
-        }
+        }*/
 
         $scope.gohome = function() {
             $location.path("/home");

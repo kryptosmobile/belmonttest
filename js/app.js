@@ -131,6 +131,9 @@ var MyCampusApp = {
         //If Metadata doesn't exist in the local storage. Then this app is launched for the first time.
         //Lets pull the default metadata file.
         if(!storedMetadata) {
+			$rootScope.firstTime = true;
+			var message = '<div style="margin: 2px; vertical-align: middle; display: inline-block;text-align:center;position:fixed;left:0px;right:0px;"><i class="icon-cog icon-spin icon-4x"></i><h3 style="color:white;">Initializing..</h3></div>';
+            $.blockUI({message : message});
             $http.get("default-metadata.json").success(function(data){
                 var tenantid = data.tenantid
                 $.jStorage.set(tenantid + '-metadata', data);
@@ -142,21 +145,24 @@ var MyCampusApp = {
                 if(window.device && data.pushconfig) {
                     MyCampusApp.activatePushNotification(tenantid, data.pushconfig);
                 }
-                var message = '<div style="margin: 2px; vertical-align: middle; display: inline-block"><i class="icon-cog icon-spin icon-4x"></i><h3 style="color:white;">Initializing..</h3></div>';
-                $.blockUI({message : message});
+                /*var message = '<div style="margin: 2px; vertical-align: middle; display: inline-block"><i class="icon-cog icon-spin icon-4x"></i><h3 style="color:white;">Initializing..</h3></div>';
+                $.blockUI({message : message});*/
                 setTimeout(function() {
                     $.unblockUI();
-                    if ($.jStorage.get('launchedonce')) {
+					$rootScope.firstTime = false;
+                    $route.reload();
+                    /*AK - Removing as per Belmont requirement to not show help screen when launched first time.*/
+                    /*if ($.jStorage.get('launchedonce')) {
                         $route.reload();
                     }else {
                         $route.reload();
                         $rootScope.$apply(function () {
                             $location.path("/help");
                         });
-                    }
-                },4000);
+                    }*/
+                },5000);
             }).error(function(data){
-                });
+            });
         }
         if(storedMetadata) {
             if($rootScope.loggedin) {
