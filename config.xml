@@ -53,8 +53,6 @@
         <!-- iPad Spotlight and Settings Icon -->
         <icon src="res/icon/ios/icon-50.png" 		gap:platform="ios" width="50" height="50" />
         <icon src="res/icon/ios/icon-50@2x.png" 		gap:platform="ios" width="100" height="100" />
-
-        <gap:config-file platform="ios" parent="CFBundleVersion"><string>1.0.1</string></gap:config-file>
         
         <gap:splash src="splash.png" />
         <gap:splash src="res/screen/android/screen-ldpi-portrait.png"  gap:platform="android" gap:density="ldpi" />
@@ -104,4 +102,5 @@
 	                <string>Allow GPS</string>
 	            </array>
         </gap:config-file>
+        <gap:config-file platform="ios" parent="CFBundleVersion"><string>1.0.1</string></gap:config-file>
     </widget>
