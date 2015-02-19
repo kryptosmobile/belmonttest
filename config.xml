@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id = "com.kryptosmobile.BELMONT" version   = "1.0.1" android-versionCode="1.0.0" ios-CFBundleVersion="1.0.1">
+        id = "com.kryptosmobile.BELMONT" version="1.0.1">
         <name>myBelmont</name>
         <description>Belmont mobile App</description>
         <author href="http://kryptosmobile.com" email="info@kryptosmobile.com">Kryptos Mobile Team</author>
@@ -54,6 +54,8 @@
         <icon src="res/icon/ios/icon-50.png" 		gap:platform="ios" width="50" height="50" />
         <icon src="res/icon/ios/icon-50@2x.png" 		gap:platform="ios" width="100" height="100" />
 
+        <gap:config-file platform="ios" parent="CFBundleVersion"><string>1.0.1</string></gap:config-file>
+        
         <gap:splash src="splash.png" />
         <gap:splash src="res/screen/android/screen-ldpi-portrait.png"  gap:platform="android" gap:density="ldpi" />
         <gap:splash src="res/screen/android/screen-mdpi-portrait.png"  gap:platform="android" gap:density="mdpi" />
