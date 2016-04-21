@@ -95,7 +95,11 @@
         <gap:plugin name="de.appplant.cordova.plugin.email-composer"/>
         <gap:plugin name="com.hutchind.cordova.plugins.launcher"/>
         <gap:plugin name="nl.x-services.plugins.launchmyapp" version="3.2.0">
-        <gap:plugin name="com.parse.cordova.core.pushplugin" version="0.1.0" />
+        <!--<gap:plugin name="com.parse.cordova.core.pushplugin" version="0.1.0" />-->
+        <gap:plugin name="com.medlei.pushplugin" version="0.1.2" >
+            <param name="APP_ID" value="UtfZRVYT6nf2n9rvf4JmzUfgUejtQ5YDT29KE6ib" />
+            <param name="CLIENT_KEY" value="N48WkTI5hW4IHf6erP2Ea5u6n22ZYoU7M4vV3bYD" />
+        </gap:plugin>
         <gap:plugin name="cordova-plugin-whitelist" source="npm" />
 	    <param name="URL_SCHEME" value="mybelmontkryptos" />
 	</gap:plugin>
@@ -107,5 +111,5 @@
 	                <string>Allow GPS</string>
 	            </array>
         </gap:config-file>
-        <gap:config-file platform="ios" parent="CFBundleVersion"><string>1.0.3</string></gap:config-file>
+        <gap:config-file platform="ios" parent="CFBundleVersion"><string>1.0.4</string></gap:config-file>
     </widget>
