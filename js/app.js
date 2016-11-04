@@ -164,10 +164,12 @@ var MyCampusApp = {
                 setTimeout(function() {
                     $.unblockUI();
                     $rootScope.firstTime = false;
+                    navigator.splashscreen.hide();
                     $route.reload();
                         /*$rootScope.$apply(function () {
                             $location.path("/home");
                         });*/
+                    
                 },4000);
             }).error(function(data){
                 });
@@ -192,7 +194,9 @@ var MyCampusApp = {
                                                            $.blockUI();
                                                            setTimeout(function() {
                                                                       $.unblockUI();
+                                                                      navigator.splashscreen.hide();
                                                                       $route.reload();
+
                                                                       },5000);
                                                            }
                                                            }).error(function(data){
@@ -200,13 +204,13 @@ var MyCampusApp = {
 			}
 		}
 
-        setTimeout(function() {
+        /*setTimeout(function() {
             try {
                 navigator.splashscreen.hide();
             }catch(ex) {
                 
             }
-        }, 0);
+        }, 0);*/
 
         //Store update bug fix end (Nick)
         
