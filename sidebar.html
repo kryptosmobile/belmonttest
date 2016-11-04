@@ -13,63 +13,96 @@
 </style>
 <div class="navbar-brand" style="color:white;" ><img style='margin:-10px 0 0 0;height:39px;' src='img/myBelmont-x2.png'/></div>
 
-
 <div class="scrollable sidebar-scrollable">
   <div class="scrollable-content">
     <div class="list-group" toggle="off" bubble target="mainSidebar">
-      <a class="list-group-item" href="#/home" style="padding-left:20px;font-size:16px;fon-weight:bold;">
-          <i class="fa fa-home fa-2x" style="min-width:40px;text-align:center;"></i>
-          Home
-          <i class="fa fa-chevron-right pull-right"></i>
-      </a>
-        <div ng-repeat = "ag in appgroups">
-            <div class="list-group-item appgroup">
-                {{ag.appFeatureType}}
+        
+        <a aria-label="Home" class="list-group-item userProfile" href="#/app/Profile76/Profile76" style="padding:0px;padding-left:0px !important;font-size:16px;font-weight:normal;" ng-show="loggedin">
+            <div class="form-group" style="margin-bottom:0px;text-align:center;padding:30px 0px;">
+                
+                <div class="" style="padding:0px;text-align:center;">
+                    
+                    <div style="height:auto;width:100%;max-height:110px;max-width:110px;overflow: hidden;border-radius:50%;margin:auto;position:relative;">
+                        <img ng-src="{{userProfilePic}}" style='width:100%;'/>
+                    </div>
+                    <!--<div class="picEditBtn"><i class="fa fa-pencil linkColor" style="font-size: 12px;margin-top:6px;"></i></div>-->
+                    
+                </div>
+                
+                
+                <div class='openSans' style="margin-top:13px;">
+                    <div style='font-size:18px;'>{{userProfileName}}</div>
+                    <div style='font-size:12px;'>{{studentRole}}</div>
+                </div>
+                <div style="clear:both"></div>
             </div>
-            <a  class="list-group-item" href="#/app/{{app.name}}/{{app.name}}" ng-repeat="app in ag.apps" style="padding-left:20px;font-size:16px;fon-weight:bold;">
-                <img class="avatar" style="width:2em;height:2em;" id="logo-{{app.name}}" ng-src="{{app.logo}}"  alt="...">
-                {{app.displayname}}
-                <i class="fa fa-chevron-right pull-right"></i>
-                <!--<p>{{app.appFeatureType}}</p>-->
-            </a>
-        </div>
+      </a>
 
-        <div class="list-group-item appgroup" >
+      <a aria-label="home" class="list-group-item"  href="#/home" style="padding:10px 0 10px 20px;font-size:12px;font-weight:normal;">
+          <img class="avatar" style="width:9.5%;" id="logo-{{app.name}}" src="images/home-128.png"  alt="">
+          <span style="font-size:13px;margin-left:3px;display:inline-block !important;margin-top:3px !important;" class='openSans'>Home</span>
+      </a>
+      
+        <div ng-repeat = "ag in appgroups" >
+           <!--<div class="list-group-item appgroup">
+                {{ag.appFeatureType}}
+            </div>-->
+            <a  aria-label="{{app.displayname}}" class="list-group-item"  href="#/app/{{app.name}}/{{app.name}}" ng-repeat="app in ag.apps" style="padding:10px 0 10px 20px;font-size:12px;font-weight:normal;" ng-show="app.showInHome == true">
+                <img class="avatar" style="width:9.5%;" id="logo-{{app.name}}" src="{{app.logo}}"  alt="">
+                    <span style="font-size:13px;margin-left:3px;display:inline-block !important;margin-top:3px !important;" class='openSans'>{{app.displayname}}</span>
+            </a>
+            
+            
+            
+        </div>
+        
+
+        <!--<div class="list-group-item appgroup" >
             Settings
         </div>
         <a id="troubleshootbtn" class="list-group-item" href="#/settings" style="padding-left:20px;font-size:16px;fon-weight:bold;">
-
-            <img style='height:25px;' src='images/reset-icon.png'/>
-            Reset App
+            <i class="fa fa-bolt fa-2x" style="min-width:40px;text-align:center;"></i>
+            Troubleshoot
             <i class="fa fa-chevron-right pull-right"></i>
         </a>
         <a id="helpbtn" class="list-group-item" href="#/help" style="padding-left:20px;font-size:16px;fon-weight:bold;">
-            <img style='height:25px;' src='images/help-icon.png'/>
+            <i class="fa fa-question-circle fa-2x" style="min-width:40px;text-align:center;"></i>
             Help
             <i class="fa fa-chevron-right pull-right"></i>
         </a>
         <a id="aboutbtn" class="list-group-item" href="#/about" style="padding-left:20px;font-size:16px;fon-weight:bold;">
-            <img style='height:25px;' src='images/info-icon.png'/>
+            <i class="fa fa-sun-o fa-2x" style="min-width:40px;text-align:center;"></i>
             About
             <i class="fa fa-chevron-right pull-right"></i>
         </a>
         <a id="deviceinfobtn" class="list-group-item" href="#/device" style="padding-left:20px;font-size:16px;fon-weight:bold;">
-            <i class="fa fa-mobile-phone fa-2x" style="min-width:25px;text-align:center;"></i>
+            <i class="fa fa-mobile-phone fa-2x" style="min-width:40px;text-align:center;"></i>
             Device Info
             <i class="fa fa-chevron-right pull-right"></i>
         </a>
         <a id="sendfeedbackbtn" class="list-group-item" href="#/sendfeedback" style="padding-left:20px;font-size:16px;fon-weight:bold;">
-            <img style='height:25px;' src='images/sendfeedback-icon.png'/>
-            Send feedback
+            <i class="fa fa-envelope fa-2x" style="min-width:40px;text-align:center;"></i>
+            Send Feedback
             <i class="fa fa-chevron-right pull-right"></i>
         </a>
-        <!--<a id="reportissuebtn" class="list-group-item" href="#/reportissue" style="padding-left:20px;font-size:16px;fon-weight:bold;">
+        <a id="reportissuebtn" class="list-group-item" href="#/reportissue" style="padding-left:20px;font-size:16px;fon-weight:bold;">
             <i class="fa fa-envelope fa-2x" style="min-width:40px;text-align:center;"></i>
             Report Issue
             <i class="fa fa-chevron-right pull-right"></i>
-        </a>-->
-        <a  class="list-group-item" style="padding-left:20px;font-size:16px;font-weight:bold;">&nbsp;&nbsp;&nbsp;
         </a>
+        <a  class="list-group-item" style="padding-left:20px;font-size:16px;font-weight:bold;">&nbsp;&nbsp;&nbsp;
+        </a>-->
+        
+        <a aria-label="Settings" class="list-group-item"  href="#/settings" style="padding:10px 0 10px 20px;font-size:12px;font-weight:normal;">
+            <img class="avatar" style="width:9.5%;" id="logo-{{app.name}}" src="images/Settings-128.png"  alt="">
+                <span style="font-size:13px;margin-left:3px;display:inline-block !important;margin-top:3px !important;font-family: 'Roboto', sans-serif;">Settings</span>
+        </a>
+        <!--<a  class="list-group-item" style="height:15px;">&nbsp;&nbsp;&nbsp;
+        </a>-->
+            <br><br>
+            <div><div>
+                <br><br>
     </div>
+
   </div>
 </div>

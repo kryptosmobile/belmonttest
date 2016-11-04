@@ -1,59 +1,62 @@
-<style>#branding{display:none;}</style>
-<div class="module-title">
-  <div>Device Info</div>
-</div>
-<div id="devicecontainer">
-    <div class="container">
-        <!--<div class="row">
-            <div style='text-align:center;'>
-                <img id="devicebranding"style='width:auto;height:70px;' src="{{brandingUrl}}"/>
-            </div>
-        </div>-->
-        <div class="container">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Device Details</h3>
-                </div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form">
-                        <!--<div class="form-group">
-                            <label for="devicename" class="col-sm-2 control-label">Name</label>
+<style type="text/css">
+#branding{display:none;}
+  .app-body {
+    background-color: #efefef;
+    background: #efefef;
+  }
+  
+  @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
+  .openSans {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .list-group-item {
+    background: transparent;
+  }
+  
+  .list-group-item .fa.pull-right,
+  a.list-group-item .fa.pull-right {
+    margin-top: 0px
+  }
+  
+  .liItems {
+    background: #fff;
+    padding: 10px;
+    font-size: 16px;
+    color: #000;
+  }
+  
+  .switch.active {
+    background-color: #3eada7;
+    border: 1px solid #dedede;
+  }
+  
+  a.list-group-item {
+    color: #000;
+  }
+  
+  a span {
+    color: #6f6f6f;
+  }
+</style>
 
-                            <div class="col-sm-10">
-                                <p class="form-control-static">{{devicename}}</p>
-                            </div>
-                        </div>-->
-                        <div class="form-group">
-                            <label for="deviceuuid" class="col-sm-2 control-label">UUID</label>
-
-                            <div class="col-sm-10">
-                                <p class="form-control-static">{{deviceuuid}}</p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="deviceplatfotm" class="col-sm-2 control-label">Platform</label>
-
-                            <div class="col-sm-10">
-                                <p class="form-control-static">{{deviceplatform}}</p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="deviceversion" class="col-sm-2 control-label">Version</label>
-
-                            <div class="col-sm-10">
-                                <p class="form-control-static">{{deviceversion}}</p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="deviceuuid" class="col-sm-2 control-label">Model</label>
-
-                            <div class="col-sm-10">
-                                <p class="form-control-static">{{devicemodel}}</p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+<div class="scrollable">
+    <div class="scrollable-content">
+<div style="padding:0px;" class='openSans'>
+  <div class='list-group'>
+    <a class='list-group-item liItems'>
+                UUID<span class="pull-right" style="font-size:12px;">{{deviceuuid}}</span>
+            </a>
+    <a ng-click="devicePage()" class='list-group-item liItems'>
+                Platform<span class="pull-right">{{deviceplatform}}</span>
+            </a>
+    <a class='list-group-item liItems' ng-click="resetmyapp()">
+                Version<span class="pull-right">{{deviceversion}}</span>
+            </a>
+    <a class='list-group-item liItems'>
+                Model<span class="pull-right">{{devicemodel}}</span>
+            </a>
+  </div>
+    </div>
     </div>
 </div>
