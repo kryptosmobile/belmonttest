@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id = "com.kryptosmobile.BELMONT" version="1.0.1">
+        id = "com.kryptosmobile.BELMONT" versionCode = "10011" version   = "1.0.1">
         <name>myBelmont</name>
         <description>Belmont mobile App</description>
-        <author href="http://kryptosmobile.com" email="info@kryptosmobile.com">Kryptos Mobile Team</author>
+       <author href="http://kryptosmobile.com" email="info@kryptosmobile.com">Kryptos Mobile Team</author>
         <feature name="http://api.phonegap.com/1.0/device" />
+        
+        <!--<preference name="phonegap-version" value="cli-5.2.0" />-->
+        
         <preference name="permissions"                value="none"/>
         <preference name="orientation"                value="portrait" />        <!-- all: default means both landscape and portrait are enabled -->
         <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
@@ -19,51 +22,51 @@
         <preference name="show-splash-screen-spinner" value="true" />           <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
         <preference name="auto-hide-splash-screen"    value="true" />           <!-- ios: if set to false, the splash screen must be hidden using a JavaScript API -->
         <preference name="disable-cursor"             value="false" />          <!-- blackberry: prevents a mouse-icon/cursor from being displayed on the app -->
-        <preference name="android-minSdkVersion"      value="7" />              <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
+        <preference name="android-minSdkVersion"      value="14" />              <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
+        
+        <preference name="android-targetSdkVersion" value="14" />
+        
         <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
-        <preference name="SplashScreenDelay" value="4500" />
+         <preference name="SplashScreenDelay" value="4500" />
         <preference name="StatusBarOverlaysWebView" value="false" />
         <preference name="KeyboardDisplayRequiresUserAction" value="false"/>
-
+        
+        
         <icon src="icon.png" />
         <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
         <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
         <icon src="res/icon/android/icon-72-hdpi.png"   gap:platform="android"    gap:density="hdpi" />
         <icon src="res/icon/android/icon-96-xhdpi.png"  gap:platform="android"    gap:density="xhdpi" />
+        <icon src="res/icon/android/icon-144-xhdpi.png"  gap:platform="android"    gap:density="xxhdpi" />
         <!-- iOS 7.0+ -->
         <!-- iPhone / iPod Touch  -->
-        <icon src="res/icon/ios/icon-60.png" 		gap:platform="ios" width="60" height="60" />
-        <icon src="res/icon/ios/icon-60@2x.png" 		gap:platform="ios" width="120" height="120" />
+        <icon src="res/icon/ios/icon-60.png"        gap:platform="ios" width="60" height="60" />
+        <icon src="res/icon/ios/icon-60@2x.png"         gap:platform="ios" width="120" height="120" />
         <!-- iPad -->
-        <icon src="res/icon/ios/icon-76.png" 		gap:platform="ios" width="76" height="76" />
-        <icon src="res/icon/ios/icon-76@2x.png" 		gap:platform="ios" width="152" height="152" />
+        <icon src="res/icon/ios/icon-76.png"        gap:platform="ios" width="76" height="76" />
+        <icon src="res/icon/ios/icon-76@2x.png"         gap:platform="ios" width="152" height="152" />
         <!-- iOS 6.1 -->
         <!-- Spotlight Icon -->
-        <icon src="res/icon/ios/icon-40.png" 		gap:platform="ios" width="40" height="40" />
-        <icon src="res/icon/ios/icon-40@2x.png" 		gap:platform="ios" width="80" height="80" />
+        <icon src="res/icon/ios/icon-40.png"        gap:platform="ios" width="40" height="40" />
+        <icon src="res/icon/ios/icon-40@2x.png"         gap:platform="ios" width="80" height="80" />
         <!-- iPhone / iPod Touch -->
-        <icon src="res/icon/ios/icon.png" 			gap:platform="ios" width="57" height="57" />
-        <icon src="res/icon/ios/icon@2x.png" 		gap:platform="ios" width="114" height="114" />
+        <icon src="res/icon/ios/icon.png"           gap:platform="ios" width="57" height="57" />
+        <icon src="res/icon/ios/icon@2x.png"        gap:platform="ios" width="114" height="114" />
         <!-- iPad -->
-        <icon src="res/icon/ios/icon-72.png" 		gap:platform="ios" width="72" height="72" />
-        <icon src="res/icon/ios/icon-72@2x.png" 		gap:platform="ios" width="144" height="144" />
+        <icon src="res/icon/ios/icon-72.png"        gap:platform="ios" width="72" height="72" />
+        <icon src="res/icon/ios/icon-72@2x.png"         gap:platform="ios" width="144" height="144" />
         <!-- iPhone Spotlight and Settings Icon -->
-        <icon src="res/icon/ios/icon-small.png" 		gap:platform="ios" width="29" height="29" />
-        <icon src="res/icon/ios/icon-small@2x.png" 		gap:platform="ios" width="58" height="58" />
+        <icon src="res/icon/ios/icon-small.png"         gap:platform="ios" width="29" height="29" />
+        <icon src="res/icon/ios/icon-small@2x.png"      gap:platform="ios" width="58" height="58" />
         <!-- iPad Spotlight and Settings Icon -->
-        <icon src="res/icon/ios/icon-50.png" 		gap:platform="ios" width="50" height="50" />
-        <icon src="res/icon/ios/icon-50@2x.png" 		gap:platform="ios" width="100" height="100" />
+        <icon src="res/icon/ios/icon-50.png"        gap:platform="ios" width="50" height="50" />
+        <icon src="res/icon/ios/icon-50@2x.png"         gap:platform="ios" width="100" height="100" />
         
         <gap:splash src="splash.png" />
         <gap:splash src="res/screen/android/screen-ldpi-portrait.png"  gap:platform="android" gap:density="ldpi" />
         <gap:splash src="res/screen/android/screen-mdpi-portrait.png"  gap:platform="android" gap:density="mdpi" />
         <gap:splash src="res/screen/android/screen-hdpi-portrait.png"  gap:platform="android" gap:density="hdpi" />
         <gap:splash src="res/screen/android/screen-xhdpi-portrait.png" gap:platform="android" gap:density="xhdpi" />
-	<gap:splash src="res/screen/android/screen-ldpi-landscape.png"  gap:platform="android" gap:qualifier="land-ldpi" />
-        <gap:splash src="res/screen/android/screen-mdpi-landscape.png"  gap:platform="android" gap:qualifier="land-mdpi" />
-        <gap:splash src="res/screen/android/screen-hdpi-landscape.png"  gap:platform="android" gap:qualifier="land-hdpi" />
-        <gap:splash src="res/screen/android/screen-xhdpi-landscape.png" gap:platform="android" gap:qualifier="land-xhdpi" />
-        
         <gap:splash src="res/screen/ios/screen-iphone-portrait.png"    gap:platform="ios"     width="320" height="480" />
         <gap:splash src="res/screen/ios/screen-iphone-portrait-2x.png" gap:platform="ios"     width="640" height="960" />
         <gap:splash src="res/screen/ios/screen-ipad-portrait.png"          gap:platform="ios"     width="768" height="1024" />
@@ -73,43 +76,65 @@
         <gap:splash src="res/screen/ios/screen-ipad-landscape-2x.png"     gap:platform="ios"     width="2048" height="1536" />
         <gap:splash src="res/screen/ios/screen-iphone-landscape.png"    gap:platform="ios"     width="480" height="320" />
         <gap:splash src="res/screen/ios/screen-iphone-landscape-2x.png" gap:platform="ios"     width="960" height="640" />
-	<!-- iPhone 6 and 6+ start-->
+        <!-- iPhone 6 and 6+ start-->
         <gap:splash src="res/screen/ios/Default-667h@2x.png" gap:platform="ios" width="750" height="1334" />
         <gap:splash src="res/screen/ios/Default-Portrait-736h@3x.png" gap:platform="ios" width="1242" height="2208" />
         <gap:splash src="res/screen/ios/Default-Landscape-736h@3x.png" gap:platform="ios" width="2208" height="1242" />
         <!-- iPhone 6 and 6+ end-->
         
         <access origin="*"/>
-        <gap:plugin name="org.apache.cordova.battery-status"/>
-        <gap:plugin name="org.apache.cordova.contacts"/>
-        <gap:plugin name="org.apache.cordova.device"/>
-        <gap:plugin name="org.apache.cordova.dialogs"/>
-        <gap:plugin name="org.apache.cordova.file"/>
-        <gap:plugin name="org.apache.cordova.file-transfer"/>
-        <gap:plugin name="org.apache.cordova.geolocation"/>
-        <gap:plugin name="org.apache.cordova.inappbrowser"/>
-        <gap:plugin name="org.apache.cordova.network-information"/>
-        <gap:plugin name="org.apache.cordova.splashscreen"/>
-        <gap:plugin name="org.apache.cordova.vibration"/>
+        <allow-navigation href="*" />
+        <allow-intent href="*" />
+        
+        <gap:plugin name="cordova-plugin-contacts" source="npm"/>
+        <gap:plugin name="cordova-plugin-device" source="npm"/>
+        <gap:plugin name="cordova-plugin-dialogs" source="npm" />
+        <!--<gap:plugin name="org.apache.cordova.file"/>-->
+        <gap:plugin name="cordova-plugin-file-transfer" source="npm" />
+        <gap:plugin name="cordova-plugin-geolocation" source="npm" />
+        <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
+        <gap:plugin name="cordova-plugin-network-information" source="npm" />
+        <gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
         <gap:plugin name="cordova-plugin-statusbar" source="npm"/>
-        <gap:plugin name="de.appplant.cordova.plugin.email-composer"/>
-        <gap:plugin name="com.hutchind.cordova.plugins.launcher"/>
-        <gap:plugin name="nl.x-services.plugins.launchmyapp" version="3.2.0">
-        <!--<gap:plugin name="com.parse.cordova.core.pushplugin" version="0.1.0" />-->
-        <gap:plugin name="com.medlei.pushplugin" version="0.1.2" >
-            <param name="APP_ID" value="UtfZRVYT6nf2n9rvf4JmzUfgUejtQ5YDT29KE6ib" />
-            <param name="CLIENT_KEY" value="N48WkTI5hW4IHf6erP2Ea5u6n22ZYoU7M4vV3bYD" />
+        
+        <gap:plugin name="cordova-plugin-whitelist" source="npm">
+            <param name="URL_SCHEME" value="mybelmontkryptos" />
         </gap:plugin>
-        <gap:plugin name="cordova-plugin-whitelist" source="npm" />
-	    <param name="URL_SCHEME" value="mybelmontkryptos" />
-	</gap:plugin>
+        <gap:plugin name="cordova-plugin-globalization" source="npm" />
+        <gap:plugin name="cordova-plugin-camera" source="npm" />
+        <gap:plugin name="cordova-plugin-actionsheet" source="npm" />
+        <gap:plugin name="nl.x-services.plugins.socialsharing" source="npm" />
+        
+
+        <gap:plugin name="phonegap-plugin-push" source="npm">
+            <param name="SENDER_ID" value="534754351918" />
+        </gap:plugin>
+        
+<!--<gap:plugin name="is-just-me-startappmx" source="npm" />-->
+<plugin spec="https://github.com/venkykowshik/startapp.git" source="git" />
+
+<!--<gap:plugin name="polarcape-cordova-plugin-document-handler" source="npm" />-->
+<plugin spec="https://github.com/ti8m/DocumentHandler.git" source="git" />
+
+
+
+<gap:config-file platform="ios" parent="LSApplicationQueriesSchemes" overwrite="true">
+    <array>
+        <string>bblearn</string>
+        <string>fb</string>
+        <string>twitter</string>
+        <string>ms-word</string>
+        <string>ms-outlook</string>
+    </array>
+</gap:config-file>
+
         <gap:config-file platform="ios" parent="UIStatusBarHidden" overwrite="true">
             <true/>
         </gap:config-file>
-        <gap:config-file platform="ios" parent="NSLocationAlwaysUsageDescription" overwrite="false">
-	            <array>
-	                <string>Allow GPS</string>
-	            </array>
+        <gap:config-file platform="ios" parent="NSLocationWhenInUseUsageDescription" overwrite="false">
+            <array>
+                <string>Allow GPS</string>
+            </array>
         </gap:config-file>
-        <gap:config-file platform="ios" parent="CFBundleVersion"><string>1.0.4</string></gap:config-file>
+   <gap:config-file platform="ios" parent="CFBundleVersion"><string>1.0.5</string></gap:config-file>
     </widget>
