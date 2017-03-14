@@ -141,9 +141,6 @@ var MyCampusApp = {
         //If Metadata doesn't exist in the local storage. Then this app is launched for the first time.
         //Lets pull the default metadata file.
         if(!storedMetadata) {
-			$rootScope.firstTime = true;
-			var message = '<div style="margin: 2px; vertical-align: middle; display: inline-block;text-align:center;position:fixed;left:0px;right:0px;"><i class="icon-cog icon-spin icon-4x"></i><h3 style="color:white;">Initializing..</h3></div>';
-            $.blockUI({message : message});
             $http.get("default-metadata.json").success(function(data){
                 var tenantid = data.tenantid
                 $.jStorage.set(tenantid + '-metadata', data);
@@ -158,18 +155,16 @@ var MyCampusApp = {
                 //var message = '<style>.blockOverlay{opacity:1 !important;}</style><div style="margin:auto;position:fixed;left:0px;right:0px;vertical-align: middle; display: inline-block;"><i class="icon-cog icon-spin icon-4x"></i><h3 style="color:white;">Initializing..</h3></div>';
                                                        
                                                        
-                /*var message = '<style>.blockOverlay{opacity:1 !important;}</style><div id="floatingBarsG"><div class="blockG" id="rotateG_01"></div><div class="blockG" id="rotateG_02"></div><div class="blockG" id="rotateG_03"></div><div class="blockG" id="rotateG_04"></div><div class="blockG" id="rotateG_05"></div><div class="blockG" id="rotateG_06"></div><div class="blockG" id="rotateG_07"></div><div class="blockG" id="rotateG_08"></div></div><div><h3 style="color:white;">Initializing..</h3></div>';
+                var message = '<style>.blockOverlay{opacity:1 !important;}</style><div id="floatingBarsG"><div class="blockG" id="rotateG_01"></div><div class="blockG" id="rotateG_02"></div><div class="blockG" id="rotateG_03"></div><div class="blockG" id="rotateG_04"></div><div class="blockG" id="rotateG_05"></div><div class="blockG" id="rotateG_06"></div><div class="blockG" id="rotateG_07"></div><div class="blockG" id="rotateG_08"></div></div><div><h3 style="color:white;">Initializing</h3></div>';
                                                        
-                $.blockUI({message : message});*/
+                $.blockUI({message : message});
                 setTimeout(function() {
                     $.unblockUI();
                     $rootScope.firstTime = false;
-                    navigator.splashscreen.hide();
                     $route.reload();
-                        /*$rootScope.$apply(function () {
+                        $rootScope.$apply(function () {
                             $location.path("/home");
-                        });*/
-                    
+                        });
                 },4000);
             }).error(function(data){
                 });
@@ -194,9 +189,7 @@ var MyCampusApp = {
                                                            $.blockUI();
                                                            setTimeout(function() {
                                                                       $.unblockUI();
-                                                                      navigator.splashscreen.hide();
                                                                       $route.reload();
-
                                                                       },5000);
                                                            }
                                                            }).error(function(data){
@@ -204,13 +197,13 @@ var MyCampusApp = {
 			}
 		}
 
-        /*setTimeout(function() {
+        setTimeout(function() {
             try {
                 navigator.splashscreen.hide();
             }catch(ex) {
                 
             }
-        }, 0);*/
+        }, 0);
 
         //Store update bug fix end (Nick)
         
@@ -314,7 +307,7 @@ var MyCampusApp = {
                 navigator.notification.confirm(
                     'Are you sure you want to logout?', // message
                     logoutcleanup,            // callback to invoke with index of button pressed
-                    ' ',           // title
+                    'Just Confirming',           // title
                     ['Yes','No']         // buttonLabels
                 );
             }else {
@@ -485,7 +478,8 @@ var MyCampusApp = {
     checkAndUpdateMetadata : function(tenant, url, $http, currentVersion,  $route, $rootScope, $scope, $sce, logosDirPath, $compile, silent) {
         $http.post(url + "/metagate/updatecheck/" + tenant + "?callback=JSON_CALLBACK", {device: window.device}).
             success(function(data) {
-                if(data.version != currentVersion) {
+                //if(data.version != currentVersion) {
+                    if(parseInt(data.version) > parseInt(currentVersion)) {
                     var onConfirm = function(buttonIndex) {
                         if(buttonIndex == 1) {
                             MyCampusApp.updateMetadata(tenant, url, $http, data, $route, $rootScope, $scope, $sce, logosDirPath, $compile);
@@ -902,10 +896,11 @@ var MyCampusApp = {
     },
 
     activatePushNotification : function(tenantId, pushconfig,$http) {
-        try {
+            try {
+            //alert("notificationcalled");
             pushconfig.senderID = "534754351918"; // Comment this line once we have added upgraded our platform to send push.
-            if ($.jStorage.get("deviceID") == null || $.jStorage.get("deviceID") == undefined) {
-                MyCampusApp.rootScope.push = PushNotification.init({
+
+            MyCampusApp.rootScope.push = PushNotification.init({
                                                                    android: {
                                                                    senderID: pushconfig.senderID
                                                                    },
@@ -919,8 +914,12 @@ var MyCampusApp = {
                                                                    },
                                                                    windows: {}
                                                                    });
+            
+            
                 
-                MyCampusApp.rootScope.push.on('registration', function(data) {
+            if(!MyCampusApp.rootScope.onNotification){
+            //alert("onnotification");    
+            MyCampusApp.rootScope.push.on('registration', function(data) {
                                               var devicePushID = data.registrationId;
                                               var pushDeviceData = {
                                               "tenant": MyCampusApp.rootScope.tenant,
@@ -928,6 +927,7 @@ var MyCampusApp = {
                                               "type": device.platform,
                                               "channel": "all"
                                               };
+                                              if ($.jStorage.get("deviceID") == null || $.jStorage.get("deviceID") == undefined) {
                                               $http.post("https://push.kryptosmobile.com/kryptosds/push/adddeviceToChannel", pushDeviceData).success(function(response) {
                                                                                                                                               $.jStorage.set("deviceID", devicePushID);
                                                                                                                                               //alert(JSON.stringify(response));
@@ -935,11 +935,24 @@ var MyCampusApp = {
                                               error(function(err) {
                                                     alert("err" + JSON.stringify(response));
                                                     });
-                                              
+                                              }
                                               });
+                
+                
+                MyCampusApp.rootScope.push.on('notification', function(data) {
+                                navigator.notification.alert(data.message,null,data.title,'Ok');
+                        });
+                MyCampusApp.rootScope.onNotification=true;
             }
+
+        MyCampusApp.rootScope.push.on('error', function(e) {
+            alert("error "+e.message);
+        });
+
+        
+
         } catch (e) { 
-            //alert(e)
+            alert(e)
         }
 
     },
