@@ -35,6 +35,8 @@ to see this page in browser
   <link rel="stylesheet" href="assets/css/eventCalendar.css">
   <link rel="stylesheet" href="assets/css/eventCalendar_theme_responsive.css">
   <link rel="stylesheet" href="assets/css/promptumenu.css">
+  <link rel="stylesheet" href="assets/css/datepicker/default.css">
+  <link rel="stylesheet" href="assets/css/datepicker/default.date.css">
       <link rel="stylesheet" href="assets/css/customCSS.css">
 
 
@@ -69,6 +71,10 @@ to see this page in browser
     <!--This is for D2L -->
     
     <script type="text/javascript" src="assets/js/apprise.min.js"></script>
+    <script src="assets/js/datepicker/picker.js"></script>
+    <script src="assets/js/datepicker/picker.date.js"></script>
+    <script src="assets/js/datepicker/picker.time.js"></script>
+    <script src="assets/js/datepicker/legacy.js"></script>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
     <style>
         .openSans{
@@ -82,25 +88,29 @@ to see this page in browser
   <style id="customstyle">{{customStyle}}</style>
   <div ng-include="'sidebar.html'" class="sidebar sidebar-left" toggleable parent-active-class="sidebar-left-in" id="mainSidebar" ></div>
 
-  <div class="app"  id="appBase" style='background-size:100% 100% !important;'>
+  <div class="app"  id="appBase" style='background-size:100% 100%;'>
     <!-- Navbar -->
-   <div style="width:100%;height:100%;background:#000;opacity:0.5;position:absolute;top:50px;z-index:999;" ng-show="blackOverlay" ng-swipe-left="myswipeleft();" ng-swipe-right="myswiperight();"></div>
+   <div style="width:100%;height:100%;background:#000;opacity:0.5;position:absolute;top:50px;z-index:999;" ng-show="blackOverlay"></div>
     
     <div class="navbar navbar-app navbar-absolute-top" style="position:fixed;z-index:100;border-radius:0px;border:none !important;">
         
         <div class="navbar-brand navbar-brand-center" yield-to="title" style="margin-top:2px;">
-            <span ng-bind="appDisplayName" style="font-weight:normal;"></span>
+            <!--<span ng-bind="appDisplayName" style="font-weight:normal;"></span>-->
+            <img style='margin:-10px 0 0 0;height:39px;' src='img/myBelmont-x2.png'/>
         </div>
         
         <div class="btn-group pull-left sideBarMenu" title="Sidebar Menu" aria-label="Sidebar Menu" name="Sidebar Menu" data-name="Sidebar Menu">
             <div aria-label="Sidebar Menu" ng-click="toggle('mainSidebar')" class="btn btn-navbar sidebar-toggle" style='margin-left:5px;'>
                 <img style='width:20px;height:20px;' src="images/hamburger-menu.png" alt="">
-                    
+                    <!--<span class="badge" style="margin-top: 10px;margin-left: -12px;position:absolute;font-weight:normal;background:#e30000 none repeat scroll 0% 0%;font-size:10px;" class='notificationCount' ng-bind="notificationCounts" ng-show='ShowPushCounts'>5</span>-->
+                    <!--<i class="fa fa-bars fa-2x"></i>-->
                     </div>
         </div>
         
         <div class="btn-group pull-right backButtonArrow" yield-to="navbarAction" style="position:absolute;margin-top: .6px;right:3px;">
-            <!--loginlogout start-->
+            <!--<div ng-show="showlogin" title="Login" aria-label="Login" name="Login" data-name="Login" ng-click='loginlogout();' class="btn btn-navbar">
+             <i ng-class="loginclass"></i> <span ng-bind="logintext" class="hide"></span>
+             </div>-->
             <div ng-show="showlogin">
             <div aria-label="Login" ng-hide="loggedin" ng-click='loginlogout();' class="btn btn-navbar">
                 <img style='width:18px;' src="images/login.png" alt="">
@@ -110,7 +120,7 @@ to see this page in browser
                 <img style='width:18px;' src="images/logout.png" alt="">
             </div>
             </div>
-            <!--loginlogout end-->
+            
             
             <div ng-hide="showlogin" title="Back" aria-label="Back" name="Back" data-name="Back" ng-click='back();' class="btn btn-navbar">
                 <img style='width:18px;' src="images/back-icon.png" alt="">
@@ -118,16 +128,16 @@ to see this page in browser
         </div>
     </div>
       <img id="branding" src="{{brandingUrl}}" />
-      <div id="dock"></div>
+      <!--<div id="dock"></div>
     <div class="navbar navbar-app navbar-absolute-bottom" style="min-height:15px;">
-        <div class="navbar-inverse" style="text-align:center;font-size:10px;">Powered by KRYPTOS MOBILE
-        </div>
-    </div>
-    
-   <!-- <div class="navbar navbar-app navbar-absolute-bottom" style="min-height:15px;box-shadow:none !important;">
-        <div class="navbar-inverse" style="text-align:center;font-size:10px;">Powered By <img aria-label="Lookingglass Kryptos" src="images/imadeLogo.png" />
+        <div class="navbar-inverse" style="text-align:center;font-size:10px;">Powered by KRYPTOS
         </div>
     </div>-->
+    
+    <div class="navbar navbar-app navbar-absolute-bottom" style="min-height:15px;box-shadow:none !important;">
+        <div class="navbar-inverse" style="text-align:center;font-size:10px;">Powered By <img src="images/imadeLogo.png" />
+        </div>
+    </div>
     
     <!--<div  style="position:fixed;bottom:15px;width:100%;padding:0;z-index:100;background:#fff;color:#efefef;border-top:#ccc solid 1px;" class="footerGroupIcons testClass">
         <div ng-repeat="ag in appgroups">

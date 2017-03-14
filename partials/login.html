@@ -1,34 +1,84 @@
 <style>#branding {
     display: none;
-}</style>
+}
+.loginPageBackButton{
+    display:none !important;
+}
+#loginDiv {
+    margin: 25px auto;
+    width: 90%;
+    margin-bottom:0px;
+}
+
+#loginDiv input {
+    border: none;
+    height: 48px;
+    outline: none;
+}
+
+#loginDiv input[type="text"] {
+    background: #fff;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    border-left: 1px solid #000;
+    border-radius: 5px 5px 0 0;
+    color: #000;
+    padding-left: 12px;
+    width: 100%;
+}
+
+#loginDiv input[type="password"] {
+    background-color: #fff;
+    border-top: 1px solid #828282;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    border-radius: 0 0 5px 5px;
+    color: #000;
+    margin-bottom: 10px;
+    padding-left: 12px;
+    width: 100%;
+}
+.backButtonArrow{
+    display: none;
+}
+.sideBarMenu{
+    display: none;
+}
+</style>
 <div class="scrollable">
     <div class="scrollable-content">
         <div class="1container" style="padding:10px;">
-            <div class="1row">
-                <div style='text-align:center;'>
-                    <img id="loginbranding" style='width:65%;' src="{{brandingUrl}}"/>
-                </div>
-            </div>
+            <!--<div class="1row">
+             <div style='text-align:center;margin:-5px 0 0 0;'>
+             <img id="loginbranding" style='width:290px;height:70px;' src="{{brandingUrl}}"/>
+             </div>
+             </div>-->
             <div class="1container" style="padding:5px;">
-                <form role="form" ng-submit="login();">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="fa fa-user"></span></span>
-                            <input name="loginUsername" id="loginUsername" type="text" class="form-control"
-                                   placeholder="Username" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-                        </div>
+                <form role="form" ng-submit="login()">
+                    <!--<div class="form-group">
+                     <div class="input-group">
+                     <span class="input-group-addon"><span class="fa fa-user"></span></span>
+                     <input name="loginUsername" id="loginUsername" type="text" class="form-control"
+                     placeholder="Username">
+                     </div>
+                     </div>
+                     <div class="form-group">
+                     <div class="input-group">
+                     <span class="input-group-addon"><span class="fa fa-lock"></span></span>
+                     <input name="loginPassword" id="loginPassword" type="password" class="form-control"
+                     placeholder="Password">
+                     </div>
+                     </div>-->
+                    <div id='loginDiv' style='text-align:center'>
+                        <input name="loginUsername" id="loginUsername" type="text" placeholder="Username">
+                        <input class='customInputbox' name="loginPassword" id="loginPassword" type="password" placeholder="Password">
                     </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="fa fa-lock"></span></span>
-                            <input name="loginPassword" id="loginPassword" type="password" class="form-control"
-                                   placeholder="Password" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-                        </div>
-                    </div>
+
                     <div id="fgpassword" ng-click="forgotpassword();" class="pull-right"
-                         style="cursor:pointer;color:#fff;padding-bottom:10px;font-weight:bold;">Forgot Password?
+                        style="cursor:pointer;color:#fff;padding-bottom:10px;font-weight:bold;margin:5px 5% 0 0;">Forgot Password?
                     </div>
-                    <button id="loginbtn" type="submit" class="btn btn-primary btn-lg btn-block">
+                    <button id="loginbtn" type="submit" style="-webkit-border-radius:4px;border-radius:4px;color:#fff;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#D63333), color-stop(50%,#D63333), color-stop(100%,#D63333));font-weight:normal;border:1px solid #D63333;cursor:pointer;line-height:15px;font-size:18px;padding:13px 30px;clear:both;text-align:center;font-family:arial;margin:20px 0 0 5%;" >
                         Login
                     </button>
                 </form>
