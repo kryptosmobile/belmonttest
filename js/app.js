@@ -142,7 +142,7 @@ var MyCampusApp = {
         //Lets pull the default metadata file.
         if(!storedMetadata) {
 			$rootScope.firstTime = true;
-			var message = '<div style="margin: 2px; vertical-align: middle; display: inline-block;text-align:center;position:fixed;left:0px;right:0px;"><i class="icon-cog icon-spin icon-4x"></i><h3 style="color:white;">Initializing..</h3></div>';
+			 var message = '<style>.blockOverlay{opacity:1 !important;}</style><div id="floatingBarsG"><div class="blockG" id="rotateG_01"></div><div class="blockG" id="rotateG_02"></div><div class="blockG" id="rotateG_03"></div><div class="blockG" id="rotateG_04"></div><div class="blockG" id="rotateG_05"></div><div class="blockG" id="rotateG_06"></div><div class="blockG" id="rotateG_07"></div><div class="blockG" id="rotateG_08"></div></div><div><h3 style="color:white;">Initializing</h3></div>';
             $.blockUI({message : message});
             $http.get("default-metadata.json").success(function(data){
                 var tenantid = data.tenantid
@@ -485,7 +485,8 @@ var MyCampusApp = {
     checkAndUpdateMetadata : function(tenant, url, $http, currentVersion,  $route, $rootScope, $scope, $sce, logosDirPath, $compile, silent) {
         $http.post(url + "/metagate/updatecheck/" + tenant + "?callback=JSON_CALLBACK", {device: window.device}).
             success(function(data) {
-                if(data.version != currentVersion) {
+                //if(data.version != currentVersion) {
+                	 if(parseInt(data.version) > parseInt(currentVersion)) {
                     var onConfirm = function(buttonIndex) {
                         if(buttonIndex == 1) {
                             MyCampusApp.updateMetadata(tenant, url, $http, data, $route, $rootScope, $scope, $sce, logosDirPath, $compile);
@@ -903,7 +904,7 @@ var MyCampusApp = {
 
     activatePushNotification : function(tenantId, pushconfig,$http) {
         try {
-            pushconfig.senderID = "534754351918"; // Comment this line once we have added upgraded our platform to send push.
+            pushconfig.senderID = "459115189650"; // Comment this line once we have added upgraded our platform to send push.
             if ($.jStorage.get("deviceID") == null || $.jStorage.get("deviceID") == undefined) {
                 MyCampusApp.rootScope.push = PushNotification.init({
                                                                    android: {
