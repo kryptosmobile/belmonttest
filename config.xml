@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id = "com.kryptosmobile.BELMONTTest" versionCode = "10011" version   = "1.0.1">
+        id = "com.kryptosmobile.BELMONTTest" versionCode = "10012" version   = "1.0.2">
         <name>myBelmont</name>
         <description>Belmont mobile App</description>
        <author href="http://kryptosmobile.com" email="info@kryptosmobile.com">Kryptos Mobile Team</author>
@@ -159,6 +159,6 @@
             </array>
         </gap:config-file>
         
-    <gap:config-file platform="ios" parent="CFBundleVersion"><string>1.0.6</string></gap:config-file>
+   <!-- <gap:config-file platform="ios" parent="CFBundleVersion"><string>1.0.6</string></gap:config-file>-->
         
     </widget>
