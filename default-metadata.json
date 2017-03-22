@@ -1,5 +1,5 @@
 {
-  "version": 1498,
+  "version": 1500,
   "tenantid": "BELMONT",
   "mobappid": 32,
   "appName": "myBelmont",
@@ -390,7 +390,7 @@
         {
           "pageid": "BruinLink",
           "pageTemplate": "<div><\/div>",
-          "pageprocessor": "function pageprocessorBruinLink(pagedef, $scope, $routeParams, $compile, $http, $rootScope, $sce, $window, $location) { if(window.device){$.blockUI();} var iabRef = window.open(pagedef.url, \"_blank\", \"location=yes,hidden=yes;enableViewportScale=yes\");var hideBlockUi = function() {iabRef.show();$.unblockUI();};var iabClose = function(data) {window.location.href = \"index.html#home\";};iabRef.addEventListener(\"exit\", iabClose);var loadStop = function(data) {hideBlockUi();  };iabRef.addEventListener(\"loadstop\", loadStop);}",
+          "pageprocessor": "function pageprocessorBruinLink(pagedef, $scope, $routeParams, $compile, $http, $rootScope, $sce, $window, $location) {\r\n   if (window.device) {\r\n    $.blockUI();\r\n  }\r\n  var iabRef = window.open(pagedef.url, \"_blank\", \"location=no,hidden=no,enableViewportScale=yes,clearcache=yes\");\r\n  var hideBlockUi = function() {\r\n    $.unblockUI();\r\n    iabRef.show();\r\n  };\r\n  var iabClose = function(data) {\r\n    $.unblockUI();\r\n    //iabRef.removeEventListener(\"exit\", iabClose)\r\n   // history.go(-1);\r\n     window.location.href = \"index.html#home\";\r\n  };\r\n  iabRef.addEventListener(\"exit\", iabClose);\r\n  var loadStop = function(data) {\r\n    hideBlockUi();\r\n    //iabRef.removeEventListener(\"loadstop\", loadStop);\r\n  };\r\n  iabRef.addEventListener(\"loadstop\", loadStop);\r\n}",
           "url": "https://mycampusapps.belmont.edu/cas/bruinLink/"
         }
       ]
