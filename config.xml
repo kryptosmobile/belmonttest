@@ -120,7 +120,7 @@
         
         
         <gap:plugin name="phonegap-plugin-push" source="npm" spec="1.8.2">
-            <param name="SENDER_ID" value="459115189650" />
+            <param name="SENDER_ID" value="839828435718" />
         </gap:plugin>
         
 <!--<gap:plugin name="is-just-me-startappmx" source="npm" />-->
