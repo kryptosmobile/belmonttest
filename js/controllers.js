@@ -275,7 +275,7 @@ angular.module('myApp.controllers', []).
             if(!$rootScope.homeDownloadCompleteAdded) {
                 $rootScope.$on("onDownloadComplete", function(event, data) {
                     $.unblockUI();
-                    //$route.reload();
+                    $route.reload();
                     $rootScope.$apply(function () {
                         //$location.path("/home");
                         if ($rootScope.loggedin) {
@@ -755,6 +755,8 @@ angular.module('myApp.controllers', []).
                 if(!$rootScope.homeDownloadCompleteAdded) {
                     $rootScope.$on("onDownloadComplete", function(event, data) {
                         $.unblockUI();
+                         $route.reload();
+                         
                         $rootScope.$apply(function () {
                             $location.path("/home");
                         });
