@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id = "com.kryptosmobile.BELMONT" versionCode = "10012" version   = "1.0.2" versionCode="10013">
+        id = "com.kryptosmobile.BELMONT" versionCode = "10012" version = "1.0.2" versionCode="10013">
         <name>myBelmont</name>
         <description>Belmont mobile App</description>
        <author href="http://kryptosmobile.com" email="info@kryptosmobile.com">Kryptos Mobile Team</author>
