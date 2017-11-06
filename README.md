@@ -1,4 +1,1 @@
-Belmont
-=======
-
-Belmont banner app.
+# KryptosImade-US Framework

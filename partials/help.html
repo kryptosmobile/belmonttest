@@ -7,16 +7,18 @@
 .help-img {
     box-shadow:0 0 10px #000;
 }
+
+div.list-group-item.active{
+    color:#fff;
+    background:#3C769D !important;
+}
 </style>
-<div class="module-title">
-  <div>Help</div>
-</div>
 <div class="scrollable">
     <div class="scrollable-content">
         <div id="helpgroup" class="list-group">
-            <!--<div class="list-group-item" ng-show="firsttime == true" style="background:#000;">
+            <div class="list-group-item" ng-show="firsttime == true" style="background:#000;">
                 <div style='text-align:center;'>
-                    <img id="loginbranding" style='width:auto;height:70px;' src="{{brandingUrl}}"/>
+                    <img id="loginbranding" style='width:70%; margin:15px 0;' src="{{brandingUrl}}"/>
                 </div>
                 <style id="helpcustomstyle">
                 </style>
@@ -26,12 +28,57 @@
                     <button class="btn btn-success" ng-click="gohome();">Press Me</button> to go to Home screen.
                 </div>
             </div>
-            <a class="list-group-item active">Help</a>-->
+            <div class="list-group-item active">Navigation - Home screen</div>
             <div class="list-group-item">
                 <p class="help-text">
-                    Is something not working? Reset your myBelmont app using the Reset App option located under Settings in the app's sidebar menu. You may be notified of available updates afterward. Be sure to acknowledge any updates and keep the app open while they download. If you continue to experience issues afterwards, please send us an email using the Send Feedback Form and we'll address the issue as soon as possible. Attach a screenshot if you can. Thank you!
+                    Tap on the left top left corner to launch the side bar navigation.
+                    When you are in the home screen, tap the top right corner icon to login and logout
+                    For non homescreen pages, the arrow icon displayed at the top right corner will take you back to the
+                    previous page.
+                </p>
+                <img class="help-img" src="img/help1.png" style="width:100%;"/>
+            </div>
+            <div class="list-group-item">
+                <p class="help-text">
+                    Swipe right to navigate to the next page apps.
+                    Swipe left to navigate to the previous page.
+                </p>
+                <img class="help-img" src="img/help2.png" style="width:100%;"/>
+            </div>
+
+            <div class="list-group-item active">Launching the Apps</div>
+            <div class="list-group-item">
+                <p class="help-text">
+                    <h3>Two ways to launch the apps<br></h3>
+                    <i class="fa fa-check"></i>&nbsp;Home screen app icons<br>
+                    <i class="fa fa-check"></i>&nbsp;Sidebar menu<br>
+                    <!--<i class="fa fa-check"></i>&nbsp;Dock icon<br>-->
                 </p>
             </div>
+            <div class="list-group-item active">Report an issue</div>
+            <div class="list-group-item">
+                <p class="help-text">
+                    If you encounter any issues with the app, please use the 'Report Issue' menu under the sidebar to report the same
+                    in an email. Please attach screenshots if any.
+                </p>
+            </div>
+            <div class="list-group-item active">Troubleshooting</div>
+            <div class="list-group-item">
+                <p class="help-text">
+                    If you encounter issues related to the app icons not loading after the metadata update, use
+                    Troubleshooting option under settings menu from the sidebar. Press the 'Reset My App' button
+                    to reset it to default state. Note: You will get an update manager popup after a reset, press 'Yes'
+                    to update the app. During this process do not minimize the app, as it can corrupt the metadata.
+                    If the metadata gets corrupted then you need to reset it again.
+                </p>
+            </div>
+
         </div>
+<!--
+        <div class="1container">
+            <img src="img/help.png" style="width:100%;height:100%;"/>
+
+        </div>
+-->
     </div>
 </div>

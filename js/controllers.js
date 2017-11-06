@@ -10,6 +10,7 @@ angular.module('myApp.controllers', []).
 
     }])
     .controller('AboutCtrl', ['$rootScope', function ($rootScope) {
+        $rootScope.appDisplayName = "About";
         $rootScope.showlogin = false;
     }])
 .controller('ReportIssueCtrl', ['$scope', '$rootScope', '$http', '$location',
@@ -86,6 +87,8 @@ angular.module('myApp.controllers', []).
                                  }])
 
     .controller('DeviceCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
+        
+                               $rootScope.appDisplayName = "Device Info";
         if(window.device) {
             $scope.devicename = window.device.name;
             $scope.deviceuuid = window.device.uuid;
@@ -189,6 +192,7 @@ angular.module('myApp.controllers', []).
     .controller('SettingsCtrl', ['$rootScope', '$scope', '$http', '$location', '$window', '$sce', '$route', '$compile',
         function ($rootScope, $scope, $http, $location, $window, $sce, $route, $compile) {
             //$scope.serverUrl = "http://localhost:8081/";
+            $rootScope.appDisplayName = "Settings";
             $rootScope.showlogin = false;
             $scope.serverUrlChange = function () {
                 $rootScope.serverUrl = $scope.serverUrl;
@@ -264,25 +268,14 @@ angular.module('myApp.controllers', []).
                              }
                              
 
-            /*
-            Status bar fix
-            */
-
-                             try{StatusBar.overlaysWebView(false);
-            StatusBar.backgroundColorByHexString("#000000");
-                             }catch(e){console.log("statusbar")}
-
+                            
+                             
             if(!$rootScope.homeDownloadCompleteAdded) {
                 $rootScope.$on("onDownloadComplete", function(event, data) {
                     $.unblockUI();
                     $route.reload();
                     $rootScope.$apply(function () {
-                        //$location.path("/home");
-                        if ($rootScope.loggedin) {
-							$rootScope.setRoute("/home");
-						}else{
-							$rootScope.setRoute("/login");
-						}
+                        $location.path("/home");
                     });
                 });
                 $rootScope.homeDownloadCompleteAdded = true;
@@ -322,13 +315,7 @@ angular.module('myApp.controllers', []).
                  */
                     //alert ("Before fillRootScopeForHome ");
                 MyCampusApp.fillRootScopeForHome($rootScope, $sce, tenant, $window, $location, $route, $http,  $scope, $compile);
-				if (!$rootScope.loggedin) {
-					/* AK added to show login page when coming to home */
-					if (!$rootScope.firstTime) {
-						/**  Mod Belmont - Bring up the login screen when the user is not logged in **/
-						$location.path("/login");
-					}
-				}
+
                 if (window.device) {
                     var allIcons, allScreens, dock, dockIcons, icon, stage, _i, _len, _results;
                     allIcons = [];
@@ -380,7 +367,7 @@ angular.module('myApp.controllers', []).
 
                     for (_i = 0, _len = allIcons.length; _i < _len; _i++) {
                         icon = allIcons[_i];
-                        var markup = '<li class="dashboardIcon"><a href="' + icon.url + '"><img src="' + icon.logourl + '" class="icon"></img></a>' +
+                        var markup = '<li class="dashboardIcon"><a href="' + icon.url + '" aria-label="'+icon.title+'"><img src="' + icon.logourl + '" class="icon"></img></a>' +
                             '<div class="campuseai-Info text-center" style="width:' + calculated + 'px;overflow:hidden;text-overflow: ellipsis;">'
                             + icon.title + '</div></li>';
                         homedata.append(markup);
@@ -593,17 +580,16 @@ angular.module('myApp.controllers', []).
         }])
     .controller('HelpCtrl', ['$scope', '$compile', '$location', '$rootScope', function ($scope, $compile, $location, $rootScope) {
         MyCampusApp.homeScreenDisplayed=false;
-        $scope.firsttime = false;
+        $scope.firsttime = true;
         $rootScope.showlogin = false;
-        /* AK - Removing as per Belmont requirement to not show help screen when launched first time. */
-        /*if ($.jStorage.get('launchedonce')) {
+        if ($.jStorage.get('launchedonce')) {
             $scope.firsttime = false;
         }else {
             $scope.brandingUrl=MyCampusApp.config.tenant + "/branding.png";
             var helpcustostyle=".navbar {display:none;}.app-body {padding-top:0px !important;padding-bottom:0px !important;}";
             $("#helpcustomstyle").html(helpcustostyle);
             $.jStorage.set('launchedonce', 'true');
-        }*/
+        }
 
         $scope.gohome = function() {
             $location.path("/home");
@@ -755,8 +741,7 @@ angular.module('myApp.controllers', []).
                 if(!$rootScope.homeDownloadCompleteAdded) {
                     $rootScope.$on("onDownloadComplete", function(event, data) {
                         $.unblockUI();
-                         $route.reload();
-                         
+                        $route.reload();
                         $rootScope.$apply(function () {
                             $location.path("/home");
                         });

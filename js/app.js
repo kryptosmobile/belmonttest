@@ -172,8 +172,8 @@ var MyCampusApp = {
         
         //Store update bug fix start (Nick)
         else {
-            if(!$rootScope.imageoptimized) {
-                $http.get("default-metadata.json").success(function(data){
+			if(!$rootScope.imageoptimized) {
+				$http.get("default-metadata.json").success(function(data){
                                                            $rootScope.imageoptimized = true;
                                                            if(data.version >= storedMetadata.version) {
                                                            var tenantid = data.tenantid
@@ -194,8 +194,8 @@ var MyCampusApp = {
                                                            }
                                                            }).error(function(data){
                                                                     });
-            }
-        }
+			}
+		}
 
         setTimeout(function() {
             try {
@@ -423,9 +423,9 @@ var MyCampusApp = {
     resumeHandler: function(){
         try {
             $.unblockUI();
-            if(MyCampusApp.rootScope) {
-                MyCampusApp.rootScope.updateCheck();
-            }
+			if(MyCampusApp.rootScope) {
+				MyCampusApp.rootScope.updateCheck();
+			}
         }catch(e) {
             //alert("Exception in Resume handler : " + e);
         }
@@ -487,27 +487,27 @@ var MyCampusApp = {
                         $rootScope.umalert = false;
                     };
                     if(!silent) {
-                        if(window.device) {
-                            if(!$rootScope.umalert) {
-                                $rootScope.umalert = true;
-                                navigator.notification.confirm(
-                                    'App Updates available. Update?', // message
-                                    onConfirm,            // callback to invoke with index of button pressed
-                                    'Update Manager',           // title
-                                    ['Yes','No']         // buttonLabels
-                                );
-                            }
-                        }else {
-                            apprise("App Updates available. Update? ", {'verify':true, 'textYes':"Yes", 'textNo':"No"}, function(r) {
-                                if(r) {
-                                    //navigator.app.exitApp();
-                                    MyCampusApp.updateMetadata(tenant, url, $http, data, $route, $rootScope, $scope, $sce, logosDirPath, $compile);
-                                } else MyCampusApp.modalDialogDisplayed = false;
-                            });
-                        }
-                    }else {
-                        onConfirm(1);
-                    }
+						if(window.device) {
+							if(!$rootScope.umalert) {
+								$rootScope.umalert = true;
+								navigator.notification.confirm(
+									'App Updates available. Update?', // message
+									onConfirm,            // callback to invoke with index of button pressed
+									'Update Manager',           // title
+									['Yes','No']         // buttonLabels
+								);
+							}
+						}else {
+							apprise("App Updates available. Update? ", {'verify':true, 'textYes':"Yes", 'textNo':"No"}, function(r) {
+								if(r) {
+									//navigator.app.exitApp();
+									MyCampusApp.updateMetadata(tenant, url, $http, data, $route, $rootScope, $scope, $sce, logosDirPath, $compile);
+								} else MyCampusApp.modalDialogDisplayed = false;
+							});
+						}
+					}else {
+						onConfirm(1);
+					}
                 }
             });
     },
@@ -784,7 +784,7 @@ var MyCampusApp = {
                 });
                 (function loop(){
                     setTimeout(function() {
-                        //alert ("Inside loop.." + downcounter);
+						//alert ("Inside loop.." + downcounter);
                         if(downcounter == 0) {
                             //$route.reload();
                             //$rootScope.broadcast("");
@@ -795,9 +795,9 @@ var MyCampusApp = {
                             setTimeout(function() {
                                 $.unblockUI();
                             },2000);
-                        }catch(exce) {
-                            //alert ("Exception .." + exce);
-                        }
+						}catch(exce) {
+							//alert ("Exception .." + exce);
+						}
 
                         } else {
                             loop();
@@ -898,7 +898,7 @@ var MyCampusApp = {
     activatePushNotification : function(tenantId,$http) {
             try {
             //alert("notificationcalled");
-            var gcmSenderID = "839828435718"; // Comment this line once we have added upgraded our platform to send push.
+            var gcmSenderID = "459115189650"; // Comment this line once we have added upgraded our platform to send push.
 
             MyCampusApp.rootScope.push = PushNotification.init({
                                                                    android: {
