@@ -62,7 +62,7 @@ a { color: inherit; }
         <a class='list-group-item liItems' ng-click="resetmyapp()">
                 Troubleshoot<i class="fa fa-angle-right pull-right"></i>
         </a>
-        <a id="sendfeedbackbtn" class="list-group-item liItems" href="mailto:{{metadata.feedbackEmail}}?subject=myCampus Mobile - BELMONT Feedback&body=%0D%0ADevice Details%0D%0A%0D%0A
+        <a id="sendfeedbackbtn" class="list-group-item liItems" href="mailto:{{metadata.feedbackEmail}}?subject=myCampus Mobile - {{tenant}} Feedback&body=%0D%0ADevice Details%0D%0A%0D%0A
             Platform : {{devicePlatform}}%0D%0A
             Device Version :  {{deviceVersion}} %0D%0A
             Device Model : {{deviceModel}} %0D%0A
@@ -72,7 +72,7 @@ a { color: inherit; }
             Send Feedback
             <i class="fa fa-angle-right pull-right"></i>
         </a>
-        <a id="reportissuebtn" class="list-group-item liItems" href="mailto:{{metadata.reportissueEmail}}?subject=myCampus Mobile - BELMONT Issue Reporting&body=%0D%0ADevice Details%0D%0A%0D%0A
+        <a id="reportissuebtn" class="list-group-item liItems" href="mailto:{{metadata.reportissueEmail}}?subject=myCampus Mobile - {{tenant}} Issue Reporting&body=%0D%0ADevice Details%0D%0A%0D%0A
             Platform : {{devicePlatform}}%0D%0A
             Device Version :  {{deviceVersion}} %0D%0A
             Device Model : {{deviceModel}} %0D%0A
