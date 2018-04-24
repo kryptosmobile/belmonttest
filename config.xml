@@ -95,36 +95,31 @@
         
         
         
-        <!--<access origin="*"/>-->
-        <access origin='*' allows-arbitrary-loads-in-media='true' allows-arbitrary-loads-in-web-content='true' allows-local-networking='true' />
+       
+        <access origin="*"/>
         <allow-navigation href="*" />
         <allow-intent href="*" />
-        
-        <plugin name="cordova-plugin-contacts" source="npm">
-            <variable name="CONTACTS_USAGE_DESCRIPTION" value="to add contact" />
+        <plugin name="cordova-plugin-contacts" source="npm" spec="2.0.0">
+            <variable name="CONTACTS_USAGE_DESCRIPTION" value="To add contact" />
         </plugin>
-        <gap:plugin name="cordova-plugin-camera" source="npm" />
+        <gap:plugin name="cordova-plugin-camera" source="npm" spec="2.4.1" />
         <gap:plugin name="cordova-plugin-device" source="npm" />
         <gap:plugin name="cordova-plugin-dialogs" source="npm" />
         <gap:plugin name="cordova-plugin-file-transfer" source="npm" spec="1.6.3"/>
         <gap:plugin name="cordova-plugin-geolocation" source="npm" spec="1.0.1"/>
         <gap:plugin name="cordova-plugin-geolocation" source="npm" />
-
         <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
         <gap:plugin name="cordova-plugin-network-information" source="npm" />
         <gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
         <gap:plugin name="cordova-plugin-statusbar" source="npm"/>
-        <!--<gap:plugin name="cordova-plugin-media" source="npm"/>-->
+        
         <gap:plugin name="cordova-plugin-whitelist" source="npm" />
         <gap:plugin name="cordova-plugin-globalization" source="npm" />
-        <plugin name="cordova-plugin-camera" source="npm">
-            <variable name="CAMERA_USAGE_DESCRIPTION" value="to send notification" />
-            <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="to send notification" />
-        </plugin>
-        <gap:plugin name="cordova-plugin-actionsheet" source="npm" />
-        <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
         
         
+        
+        <!--<preference name="android-build-tool" value="gradle" />-->
+
         <gap:plugin name="phonegap-plugin-push" source="npm" spec="1.8.2">
             <param name="SENDER_ID" value="459115189650" />
         </gap:plugin>
