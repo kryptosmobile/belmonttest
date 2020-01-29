@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id = "com.kryptosmobile.BELMONT" version   = "4.0.1">
+        id = "com.kryptosmobile.BELMONT" version   = "4.0.2">
         <name>myBelmont</name>
         <description>Belmont mobile App</description>
         <author href="http://kryptosmobile.com" email="info@kryptosmobile.com">Kryptos Mobile Team</author>
@@ -22,7 +22,7 @@
         <preference name="show-splash-screen-spinner" value="true" />           <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
         <preference name="auto-hide-splash-screen"    value="true" />           <!-- ios: if set to false, the splash screen must be hidden using a JavaScript API -->
         <preference name="disable-cursor"             value="false" />          <!-- blackberry: prevents a mouse-icon/cursor from being displayed on the app -->
-        <preference name="android-minSdkVersion"      value="23" />              <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
+        <preference name="android-minSdkVersion"      value="21" />              <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
         
         <preference name="android-targetSdkVersion" value="28" />
         
