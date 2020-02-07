@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id = "com.kryptosmobile.BELMONT" version   = "4.0.2">
+        id = "com.kryptosmobile.BELMONT" version   = "5.0.0">
         <name>myBelmont</name>
         <description>Belmont mobile App</description>
         <author href="http://kryptosmobile.com" email="info@kryptosmobile.com">Kryptos Mobile Team</author>
         <feature name="http://api.phonegap.com/1.0/device" />
         
-        <!--<preference name="phonegap-version" value="cli-6.3.0" />-->
-         <preference name="permissions"                value="none"/>
+        <!--<preference name="phonegap-version"           value="cli-6.5.0" />-->
+        <preference name="phonegap-version"           value="cli-7.1.0" />
+        <preference name="permissions"                value="none"/>
         <preference name="orientation"                value="portrait" />        <!-- all: default means both landscape and portrait are enabled -->
         <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
         <preference name="fullscreen"                 value="false" />           <!-- all: hides the status bar at the top of the screen -->
@@ -96,20 +97,21 @@
         
         
         <!--<access origin="*"/>-->
-        <access origin='*' allows-arbitrary-loads-in-media='true' allows-arbitrary-loads-in-web-content='true' allows-local-networking='true' />
+        
+        <access origin="*" />
         <allow-navigation href="*" />
         <allow-intent href="*" />
         
         <plugin name="cordova-plugin-contacts" source="npm">
             <variable name="CONTACTS_USAGE_DESCRIPTION" value="to add contact" />
         </plugin>
-        <gap:plugin name="cordova-plugin-camera" source="npm" />
+        <!--<gap:plugin name="cordova-plugin-camera" source="npm" />-->
+        <gap:plugin name="cordova-plugin-camera" source="npm" spec="2.4.1" />
         <gap:plugin name="cordova-plugin-device" source="npm" />
         <gap:plugin name="cordova-plugin-dialogs" source="npm" />
         <gap:plugin name="cordova-plugin-file-transfer" source="npm" spec="1.6.3"/>
         <gap:plugin name="cordova-plugin-geolocation" source="npm" spec="1.0.1"/>
-        <gap:plugin name="cordova-plugin-geolocation" source="npm" />
-
+        
         <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
         <gap:plugin name="cordova-plugin-network-information" source="npm" />
         <gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
@@ -149,10 +151,14 @@
             </array>
         </gap:config-file>
         
+        <plugin name="cordova-plugin-media-capture" source="npm" spec="1.4.1">
+            <variable name="CAMERA_USAGE_DESCRIPTION" value="Need camera access to add pictures in Connect post" />
+            <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Need Photo library access to add pictures in Connect post" />
+        </plugin>
         
         <gap:config-file platform="ios" parent="NSPhotoLibraryUsageDescription">
-    <string>to send notification</string>
-</gap:config-file>
+            <string>to send notification</string>
+        </gap:config-file>
         
         <gap:config-file platform="ios" parent="UIStatusBarHidden" overwrite="true">
             <true/>
